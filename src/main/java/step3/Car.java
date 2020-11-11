@@ -6,9 +6,9 @@ import java.util.Objects;
 
 public class Car {
 
-    private String name;
+    String name;
 
-    private int movingDistance = 0;
+    int movingDistance = 0;
 
     private NameValidator nameValidator = new NameValidator();
 
@@ -17,25 +17,8 @@ public class Car {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getMovingDistance() {
-        return movingDistance;
-    }
-
     public void moveIf(MoveCondition condition) {
         if (condition.match()) movingDistance++;
-    }
-
-    public void displayOn(RaceDisplay raceDisplay) {
-        StringBuffer sb = new StringBuffer();
-        sb.append(name).append('|');
-        int length = movingDistance;
-        while (length-- > 0) { sb.append('-'); }
-
-        raceDisplay.writeLine(sb.toString());
     }
 
     private class NameValidator {
@@ -63,3 +46,4 @@ public class Car {
     }
 
 }
+
