@@ -43,16 +43,16 @@ public class CarRacing {
     }
 
     private void readyToRace(List<String> carNames) {
-        this.cars = new ArrayList<>(carNames.size());
+        cars = new ArrayList<>(carNames.size());
         carNames.forEach(it -> cars.add(new Car(it)));
     }
 
     private void displayCurrentMovingDistances() {
-        this.resultView.showRaceState(cars);
+        resultView.showRaceState(cars);
     }
 
     private void tryMovingAllCars() {
-        this.cars.forEach(it -> it.moveIf(() -> raceRoulette.spin() >= 4));
+        cars.forEach(it -> it.moveIf(() -> raceRoulette.spin() >= 4));
     }
 
     public static void main(String[] args) {

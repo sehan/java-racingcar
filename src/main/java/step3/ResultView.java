@@ -13,7 +13,7 @@ public class ResultView {
     }
 
     public void showRaceWinner(List<Car> winners){
-        raceDisplay.writeRaceWinner(winners.stream().map(it -> it.getName()).collect(Collectors.toList()));
+        String winnerNames = winners.stream().map(it -> it.getName()).collect(Collectors.joining(","));
+        raceDisplay.writeLine(winnerNames +"가 최종 우승했습니다.");
     }
-
 }

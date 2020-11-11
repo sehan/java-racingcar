@@ -18,11 +18,11 @@ public class Car {
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public int getMovingDistance() {
-        return this.movingDistance;
+        return movingDistance;
     }
 
     public void moveIf(MoveCondition condition) {
@@ -30,7 +30,12 @@ public class Car {
     }
 
     public void displayOn(RaceDisplay raceDisplay) {
-        raceDisplay.writeMovingDistance(name, movingDistance);
+        StringBuffer sb = new StringBuffer();
+        sb.append(name).append('|');
+        int length = movingDistance;
+        while (length-- > 0) { sb.append('-'); }
+
+        raceDisplay.writeLine(sb.toString());
     }
 
     private class NameValidator {
